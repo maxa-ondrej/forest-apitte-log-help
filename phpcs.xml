@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Backend">
+	<file>./www/index.php</file>
+	<file>./app</file>
+	<file>./tests/api</file>
+	<file>./tests/backend</file>
+	<file>./tests/unit</file>
+	<file>./tests/integration</file>
+
+    <arg name="basepath" value="."/>
+    <arg name="cache" value="temp/cache/phpcs.json"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="10"/>
+	<arg value="p"/>
+	<arg value="s"/>
+
+    <!-- <rule ref="PSR12"/> -->
+    <rule ref="./vendor/arxeiss/coding-standards/Rules/phpcs-spaces.xml"/>
+    <rule ref="./vendor/arxeiss/coding-standards/Rules/phpcs-strict.xml"/>
+    <rule ref="SlevomatCodingStandard.Classes.ClassStructure">
+        <properties>
+            <property name="groups" type="array">
+                <element value="uses"/>
+
+                <!-- Public constants are first but you don't care about the order of protected or private constants -->
+                <element value="public constants"/>
+                <element value="constants"/>
+
+                <!-- You don't care about the order among the properties. The same can be done with "properties" shortcut -->
+                <element value="public properties"/>
+                <element value="properties"/>
+
+                <!-- Constructor is first, then all public methods, then protected/private methods and magic methods are last -->
+                <element value="constructor"/>
+                <element value="all public methods"/>
+                <element value="methods"/>
+                <element value="magic methods"/>
+            </property>
+        </properties>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+        <properties>
+            <property name="rootNamespaces" type="array">
+                <element key="app" value="App"/>
+                <element key="tests/backend" value="Tests\Backend"/>
+                <element key="tests/api" value="Tests\Api"/>
+                <element key="tests/unit" value="App"/>
+                <element key="tests/integration" value="Tests\Integration"/>
+            </property>
+        </properties>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+        <properties>
+            <property name="searchAnnotations" value="1"/>
+        </properties>
+    </rule>
+
+
+    <!-- Exclude folders -->
+    <exclude-pattern>/app/bootstrap.php</exclude-pattern>
+    <exclude-pattern>*.phtml</exclude-pattern>
+</ruleset>

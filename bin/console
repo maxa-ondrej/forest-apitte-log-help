@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types = 1);
+
+use Contributte\Console\Application;
+
+/** @var Nette\DI\Container $container */
+$container = require_once __DIR__ . '/../app/Bootstrap.php';
+
+// Run application.
+$container->getByType(Application::class)->run();

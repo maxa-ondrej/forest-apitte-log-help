@@ -1,0 +1,13 @@
+# Nette
+/app/config/config.local.neon
+
+/.vscode/
+
+# Composer
+/vendor
+
+# Tests
+/tests/*.log
+/tests/tmp
+/tests/coverage.html
+/c3.php

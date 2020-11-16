@@ -1,0 +1,2 @@
+extensions:
+    codeception: Contributte\Codeception\DI\HttpExtension

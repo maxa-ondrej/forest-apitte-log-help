@@ -1,0 +1,17 @@
+includes:
+	- ../app/parameters.neon
+	- ../app/services.neon
+	- ../ext/apitte.neon
+	- ../ext/contributte.neon
+	- ../ext/nettrine.neon
+
+php:
+	date.timezone: Europe/London
+	output_buffering: 4096
+
+di:
+	debugger: false
+
+tracy:
+	logSeverity: E_ALL
+	strictMode: true

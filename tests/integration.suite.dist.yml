@@ -1,0 +1,18 @@
+error_level: "E_ALL"
+class_name: IntegrationSuiteTester
+modules:
+    enabled:
+        - Contributte\Codeception\Module\NetteDIModule:
+            tempDir: ../_temp/integration
+            configFiles:
+                - ../../app/config/test.neon
+                - ../../app/config/config.local.neon
+                - config/config.neon
+            # Log directory for Tracy.
+            logDir: ../_log
+            # Debug mode.
+            debugMode: true
+            # Get rid of the default extensions.
+            removeDefaultExtensions: true
+            # Compile and create new container for each test.
+            newContainerForEachTest: true

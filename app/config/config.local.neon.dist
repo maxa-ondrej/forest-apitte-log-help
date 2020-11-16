@@ -1,0 +1,13 @@
+# Host Config
+parameters:
+    # API
+    api:
+        bot:
+            token: admin
+
+    # Database
+    database:
+        host: localhost
+        dbname: backend
+        user: backend
+        password: 8hFr40WSk@Aj

@@ -1,0 +1,7 @@
+actor: ApiTester
+path: backend
+modules:
+    enabled:
+        - REST:
+            url: 'http://localhost:8000/backend'
+            depends: PhpBrowser
