@@ -28,7 +28,6 @@ class Users
         if ($this->em->getUserRepository()->findOneByEmail($dto['email'])) {
             throw new EmailTakenException($dto['email']);
         }
-        dump('OK');
         $user = new User(
             $dto['username'],
             $dto['email'],
